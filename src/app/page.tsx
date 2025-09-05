@@ -1,103 +1,192 @@
-import Image from "next/image";
+'use client';
+
+import Link from 'next/link';
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const examples = [
+    {
+      title: "Basic Text Generation",
+      description: "Simple one-time text generation without streaming. Notice how you wait for the complete response.",
+      href: "/basic",
+      features: [
+        "Synchronous response",
+        "Basic error handling", 
+        "Simple API call with generateText()"
+      ],
+      color: "bg-blue-500 hover:bg-blue-600"
+    },
+    {
+      title: "Streaming Chat",
+      description: "Real-time streaming chat interface with conversation history and immediate feedback.",
+      href: "/chat",
+      features: [
+        "Real-time streaming responses",
+        "Conversation history",
+        "useChat hook integration",
+        "Better user experience"
+      ],
+      color: "bg-green-500 hover:bg-green-600"
+    },
+    {
+      title: "Chat with Tools",
+      description: "AI chat enhanced with tools. Try asking about the weather to see tool calls in action.",
+      href: "/chat-tools",
+      features: [
+        "Weather tool integration",
+        "Tool call visualization",
+        "Extended AI capabilities",
+        "Real-time tool execution"
+      ],
+      color: "bg-purple-500 hover:bg-purple-600"
+    },
+    {
+      title: "Multi-Step Tool Calls",
+      description: "Advanced example showing how AI can use multiple tools in sequence to solve complex tasks.",
+      href: "/chat-multi-step",
+      features: [
+        "Multi-step tool execution",
+        "Temperature conversion tool",
+        "Complex reasoning chains",
+        "Up to 5 tool steps"
+      ],
+      color: "bg-orange-500 hover:bg-orange-600"
+    },
+    {
+      title: "Advanced Features",
+      description: "Comprehensive example with multiple tools: time, calculator, weather, and temperature conversion.",
+      href: "/chat-advanced",
+      features: [
+        "Multiple tool types",
+        "Time and date handling",
+        "Mathematical calculations",
+        "Up to 10 tool steps"
+      ],
+      color: "bg-indigo-500 hover:bg-indigo-600"
+    }
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <div className="bg-white shadow-sm border-b">
+        <div className="max-w-6xl mx-auto px-4 py-8">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            AI SDK v5 Examples
+          </h1>
+          <p className="text-xl text-gray-600 max-w-3xl">
+            Comprehensive examples demonstrating the power of AI SDK v5. 
+            From basic text generation to advanced multi-step tool calls.
+          </p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+
+      {/* Examples Grid */}
+      <div className="max-w-6xl mx-auto px-4 py-12">
+        <div className="grid md:grid-cols-2 gap-8">
+          {examples.map((example, index) => (
+            <div key={index} className="bg-white rounded-lg shadow-lg border overflow-hidden">
+              <div className="p-6">
+                <h2 className="text-2xl font-bold text-gray-900 mb-3">
+                  {example.title}
+                </h2>
+                <p className="text-gray-600 mb-4">
+                  {example.description}
+                </p>
+                
+                <div className="mb-6">
+                  <h3 className="text-sm font-semibold text-gray-700 mb-2">Features:</h3>
+                  <ul className="text-sm text-gray-600 space-y-1">
+                    {example.features.map((feature, i) => (
+                      <li key={i} className="flex items-center">
+                        <span className="w-1.5 h-1.5 bg-rose-500 rounded-full mr-2"></span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <Link
+                  href={example.href}
+                  className={`inline-block w-full text-center ${example.color} text-white py-3 px-4 rounded-lg font-medium transition-colors`}
+                >
+                  Try Example
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Learning Path */}
+      <div className="bg-white border-t">
+        <div className="max-w-6xl mx-auto px-4 py-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            Recommended Learning Path
+          </h2>
+          
+          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-8">
+            <div className="flex items-center space-x-4">
+              <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold">1</div>
+              <div>
+                <h3 className="font-semibold">Basic Generation</h3>
+                <p className="text-sm text-gray-600">Start with simple text generation</p>
+              </div>
+            </div>
+            
+            <div className="hidden md:block text-gray-400">→</div>
+            
+            <div className="flex items-center space-x-4">
+              <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">2</div>
+              <div>
+                <h3 className="font-semibold">Streaming Chat</h3>
+                <p className="text-sm text-gray-600">Experience real-time responses</p>
+              </div>
+            </div>
+            
+            <div className="hidden md:block text-gray-400">→</div>
+            
+            <div className="flex items-center space-x-4">
+              <div className="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold">3</div>
+              <div>
+                <h3 className="font-semibold">Tools Integration</h3>
+                <p className="text-sm text-gray-600">Add external capabilities</p>
+              </div>
+            </div>
+            
+            <div className="hidden md:block text-gray-400">→</div>
+            
+            <div className="flex items-center space-x-4">
+              <div className="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold">4</div>
+              <div>
+                <h3 className="font-semibold">Multi-Step Tools</h3>
+                <p className="text-sm text-gray-600">Complex reasoning chains</p>
+              </div>
+            </div>
+            
+            <div className="hidden md:block text-gray-400">→</div>
+            
+            <div className="flex items-center space-x-4">
+              <div className="w-8 h-8 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold">5</div>
+              <div>
+                <h3 className="font-semibold">Advanced Features</h3>
+                <p className="text-sm text-gray-600">Multiple tools working together</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="bg-gray-900 text-white">
+        <div className="max-w-6xl mx-auto px-4 py-8">
+          <div className="text-center">
+            <h3 className="text-lg font-semibold mb-2">AI SDK v5 Complete Lesson</h3>
+            <p className="text-gray-400">
+              Based on the official Next.js App Router Quickstart
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
