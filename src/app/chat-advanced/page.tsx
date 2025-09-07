@@ -13,9 +13,9 @@ export default function ChatAdvanced() {
     switch (part.type) {
       case 'tool-getCurrentTime':
         return (
-          <div key={i} className="mt-2 p-2 bg-blue-50 border border-blue-200 rounded">
-            <div className="text-sm font-semibold text-blue-800">🕐 Time Tool:</div>
-            <pre className="text-xs text-blue-700 mt-1">
+          <div key={i} className="mt-2 p-2 bg-rose-50 border border-rose-200 rounded">
+            <div className="text-sm font-semibold text-rose-800">🕐 Time Tool:</div>
+            <pre className="text-xs text-rose-700 mt-1">
               {JSON.stringify(part, null, 2)}
             </pre>
           </div>
@@ -141,3 +141,6 @@ export default function ChatAdvanced() {
     </div>
   );
 }
+
+
+

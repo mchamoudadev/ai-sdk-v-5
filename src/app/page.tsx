@@ -13,7 +13,7 @@ export default function Home() {
         "Basic error handling", 
         "Simple API call with generateText()"
       ],
-      color: "bg-blue-500 hover:bg-blue-600"
+      color: "bg-rose-500 hover:bg-rose-600"
     },
     {
       title: "Streaming Chat",
@@ -126,7 +126,7 @@ export default function Home() {
           
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-8">
             <div className="flex items-center space-x-4">
-              <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold">1</div>
+              <div className="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center font-bold">1</div>
               <div>
                 <h3 className="font-semibold">Basic Generation</h3>
                 <p className="text-sm text-gray-600">Start with simple text generation</p>
